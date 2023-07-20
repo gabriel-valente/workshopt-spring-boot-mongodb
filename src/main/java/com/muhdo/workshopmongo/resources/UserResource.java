@@ -1,6 +1,7 @@
 package com.muhdo.workshopmongo.resources;
 
 import com.muhdo.workshopmongo.domain.User;
+import com.muhdo.workshopmongo.dto.UserDTO;
 import com.muhdo.workshopmongo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +20,10 @@ public class UserResource {
     private UserService service;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<User>> findAll() {
+    public ResponseEntity<List<UserDTO>> findAll() {
         List<User> list = service.findAll();
+        List<UserDTO> listDto = list.stream().map(UserDTO::new).toList();
 
-
-        return ResponseEntity.ok().body(list);
+        return ResponseEntity.ok().body(listDto);
     }
 }
