@@ -6,24 +6,24 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class CommentDTO implements Serializable {
-    private String name;
+    private String text;
     private Date date;
     private AuthorDTO author;
 
     public CommentDTO() { }
 
-    public CommentDTO(String name, Date date, AuthorDTO author) {
-        this.name = name;
+    public CommentDTO(String text, Date date, AuthorDTO author) {
+        this.text = text;
         this.date = date;
         this.author = author;
     }
 
-    public String getName() {
-        return name;
+    public String getText() {
+        return text;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public Date getDate() {
